@@ -1,0 +1,24 @@
+[package]
+name = "pbl-rs"
+version = "0.1.0"
+edition = "2021"
+build = "src/build.rs"
+
+#[toolchain]
+#targets = ["aarch64-unknown-uefi", "i686-unknown-uefi", "x86_64-unknown-uefi"]
+
+[dependencies]
+log = "0.4.22"
+uefi = { version = "0.29.0", features = ["logger", "alloc", "global_allocator", "panic_handler"] }
+uefi-raw = "0.6.0"
+minipng = "0.1.1"
+slint = { version = "1.7.1", default-features = false, features = [
+    "compat-1-2",
+    "renderer-software",
+    "libm",
+    "log",
+    "unsafe-single-threaded",
+] }
+
+[build-dependencies]
+slint-build = "1.7.1"
